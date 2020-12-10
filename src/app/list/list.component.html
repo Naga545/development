@@ -1,0 +1,88 @@
+<home></home>
+<div *ngIf="studentform">
+  <h2>Student Details</h2>
+  <div class="mb-3 row" style="margin-top: 30px;">
+    <label for="staticEmail" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="staticEmail" placeholder="First Name" name="firstName"
+        [(ngModel)]="home.firstName">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Second Name</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" placeholder="Second Name" name="secondName" [(ngModel)]="home.secondName">
+    </div>
+    <div class="col-auto " style=" margin-top: 10px; margin-left: 500px;">
+      <button type="submit" class="btn btn-primary mb-3" (click)="addStudent(home)">Next</button>
+    </div>
+  </div>
+</div>
+<div *ngIf="Marksform">
+  <h2>Marks Details</h2>
+  <form >
+    <div class = "container">
+    <div class= "form-row" *ngFor= "let data of dataArray;let i = index">
+      <div class="form-group col-md-4">
+        <label for="" class="visually-hidden">Subject</label>
+        <input type="text" class="form-control" placeholder="Subject" name="subject{{i}}" [(ngModel)]="data.subject">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="" class="visually-hidden">Marks</label>
+        <input type="text" class="form-control" placeholder="Marks" name="marks{{i}}" [(ngModel)]="data.marks">
+
+      </div>
+      <div class="form-group col-md-4">
+
+        <!-- <<button type="submit" class="btn btn-primary mb-3" (click)="addmarks(marks)">-</button>> -->
+<span class="btn btn-danger" style="margin-top: 30px;" (click)="removeForm(i)" *ngIf="i!=0">DELETE</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-auto">
+    <span class="btn btn-success" (click)="addForm()">ADD</span>
+    <button type="submit" class="btn btn-success mb-3" style="margin-top: 20px;margin-left: 19px;" (click)="onSubmit()">Submit</button>
+  </div>
+  </form>
+  <br>
+ 
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Second Name</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Marks</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Ram</th>
+      <td>K</td>
+      <td>Telugu</td>
+      <td>30</td>
+      <td> <span class="btn btn-danger"  style="padding: 10px;" >Edit</span></td>
+      <td> <span class="btn btn-danger" style="padding: 10px;" >DELETE</span></td>
+    </tr>
+    <tr>
+      <th scope="row">Ram</th>
+      <td>K</td>
+      <td>Telugu</td>
+      <td>30</td>
+      <td> <span class="btn btn-danger"  style="padding: 10px;" >Edit</span></td>
+      <td> <span class="btn btn-danger" style="padding: 10px;" >DELETE</span></td>
+    </tr>
+    <tr>
+      <th scope="row">Nani</th>
+      <td>K</td>
+      <td>Telugu</td>
+      <td>30</td>
+     
+      <td> <span class="btn btn-danger"  style="padding: 10px;" >Edit</span></td>
+      <td> <span class="btn btn-danger" style="padding: 10px;" >DELETE</span></td>
+    </tr>
+  </tbody>
+</table>
